@@ -1,0 +1,46 @@
+2017-12-04 21:37:06,584 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'projetofiap'                           +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2017-12-04 21:37:06,706 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2017-12-04 21:37:06,777 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2017-12-04 21:37:06,867 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2017-12-04 21:37:06,867 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.7)
+2017-12-04 21:37:06,905 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@6b00f608: startup date [Mon Dec 04 21:37:06 BRST 2017]; root of context hierarchy
+2017-12-04 21:37:07,668 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-12-04 21:37:08,239 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2017-12-04 21:37:08,578 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2017-12-04 21:37:08,581 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: projetofiapFlow
+2017-12-04 21:37:08,581 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6cff61fc
+2017-12-04 21:37:08,602 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: projetofiapFlow.stage1
+2017-12-04 21:37:08,618 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs D:\silas\ESB-Mule\.mule\.\.mule\projetofiap\queue-tx-log\tx1.log and D:\silas\ESB-Mule\.mule\.\.mule\projetofiap\queue-tx-log\tx2.log
+2017-12-04 21:37:08,622 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs D:\silas\ESB-Mule\.mule\.\.mule\projetofiap\queue-xa-tx-log\tx1.log and D:\silas\ESB-Mule\.mule\.\.mule\projetofiap\queue-xa-tx-log\tx2.log
+2017-12-04 21:37:08,757 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='D:\silas\ESB-Mule\.mule\apps\projetofiap\projetofiap.xml'}]"
+2017-12-04 21:37:08,757 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='D:\silas\ESB-Mule\.mule\apps\projetofiap\projetofiap.xml'}]"
+2017-12-04 21:37:08,758 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'projetofiap'                               +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2017-12-04 21:37:08,760 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2017-12-04 21:37:08,760 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2017-12-04 21:37:08,789 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://0.0.0.0:8081
+2017-12-04 21:37:08,791 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2017-12-04 21:37:08,792 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2017-12-04 21:37:08,793 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: projetofiapFlow
+2017-12-04 21:37:08,794 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: projetofiapFlow.stage1
+2017-12-04 21:37:08,821 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2017-12-04 21:37:08,832 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: projetofiap                                           *
+* OS encoding: \, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   DevKit Extension Information                                     *
+*   Batch module default engine                                      *
+*   Wrapper Manager                                                  *
+**********************************************************************
