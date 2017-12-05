@@ -131,3 +131,9 @@ Caused by: java.lang.IllegalStateException: Application does not have an active 
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
 	... 84 more
+
+!ENTRY org.mule.tooling.core 1 0 2017-12-04 21:59:11.708
+!MESSAGE Generating unique Studio Id = STUDIO-7d037c63-c721-4e7b-9aff-99358c804008-15124319517084431
+
+!ENTRY org.mule.tooling.core 1 0 2017-12-04 21:59:11.709
+!MESSAGE Generating unique Studio Id = STUDIO-7d037c63-c721-4e7b-9aff-99358c804008-15124319517084431

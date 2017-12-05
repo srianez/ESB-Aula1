@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <db:mysql-config name="MySQL_Configuration" host="localhost" port="3306" user="root" password="fiap" database="mule" doc:name="MySQL Configuration"/>
     <flow name="projetofiapFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/aluno/{rm}/nome" doc:name="HTTP"/>
-        <logger message="#[message.inboundProperties.'http.uri.params'.rm]" level="INFO" doc:name="Logger"/>
+        <logger message="Registro da matricula: #[message.inboundProperties.'http.uri.params'.rm]" level="INFO" doc:name="Logger"/>
+        <response>
+            <logger message="segundo parametro #[message.inboundProperties.'http.query.params'.perfil]" level="INFO" doc:name="Logger"/>
+        </response>
+    </flow>
+    <flow name="flowPayLoad">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/payload" doc:name="HTTP"/>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <logger message="O payload enviado foi #[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="projetofiapFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/alunodb/{rm}" doc:name="HTTP"/>
+        <logger message="RM: #[message.inboundProperties.'http.uri.params'].rm" level="INFO" doc:name="Logger"/>
+        <response>
+            <json:object-to-json-transformer doc:name="Object to JSON"/>
+        </response>
+        <set-variable variableName="rmvar" value="#[message.inboundProperties.'http.uri.params'.rm]" doc:name="Variable"/>
+        <db:select config-ref="MySQL_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[select * from aluno where rm = #[flowVars.rmvar]]]></db:parameterized-query>
+        </db:select>
     </flow>
 </mule>
